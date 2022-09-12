@@ -6,6 +6,8 @@ $padding20: rem-calc(20);
   display: flex;
   justify-content: space-between;
 
+  padding: $padding20 0;
+
   .pokemon {
     position: relative;
     display: flex;
