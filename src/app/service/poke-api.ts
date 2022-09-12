@@ -10,4 +10,19 @@ export interface PokeApiPaginatedListProps {
 export interface PokeApiPaginatedListResultItemProps {
   name: string
   url: string
+  info?: PokemonInfoProps
+}
+
+export interface PokemonInfoProps {
+  types: PokemonTypeProps[]
+  sprites: PokemonImageProps
+  id: number
+}
+
+export interface PokemonTypeProps {
+  type: { name: string }
+}
+
+export interface PokemonImageProps {
+  other: { dream_world: { front_default: string } }
 }
