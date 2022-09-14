@@ -8,15 +8,23 @@ import { PokeApiService } from 'src/app/service/poke-api.service'
   styleUrls: ['./poke-list.component.scss'],
 })
 export class PokeListComponent implements OnInit {
+  private setAllPokemons: PokeApiPaginatedListResultItemProps[] = [] as PokeApiPaginatedListResultItemProps[]
   public getAllPokemons: PokeApiPaginatedListResultItemProps[] = [] as PokeApiPaginatedListResultItemProps[]
   constructor(private pokeApiService: PokeApiService) {}
 
   ngOnInit(): void {
     this.pokeApiService.apiListAllPokemons.subscribe({
       next: (response) => {
-        this.getAllPokemons = response.results
-        console.log(this.getAllPokemons)
+        this.setAllPokemons = response.results
+        this.getAllPokemons = this.setAllPokemons
       },
     })
+  }
+
+  public getSearch(value: string) {
+    const filter = this.setAllPokemons.filter(
+      (pokemon) => !pokemon.name.indexOf(value.toLowerCase()),
+    )
+    this.getAllPokemons = filter
   }
 }
