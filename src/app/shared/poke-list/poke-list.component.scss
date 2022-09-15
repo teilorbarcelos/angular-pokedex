@@ -63,7 +63,7 @@ $padding20: rem-calc(20);
         right: $padding20;
         bottom: $padding20;
 
-        background: url('../../../assets/bg/pokemon-bg.svg') no-repeat;
+        background: no-repeat url('../../../assets/bg/pokemon-bg.svg');
 
         img {
           width: rem-calc(60);
