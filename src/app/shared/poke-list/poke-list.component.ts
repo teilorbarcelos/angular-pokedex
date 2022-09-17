@@ -10,6 +10,7 @@ import { PokeApiService } from 'src/app/service/poke-api.service'
 export class PokeListComponent implements OnInit {
   private setAllPokemons: PokeApiPaginatedListResultItemProps[] = [] as PokeApiPaginatedListResultItemProps[]
   public getAllPokemons: PokeApiPaginatedListResultItemProps[] = [] as PokeApiPaginatedListResultItemProps[]
+  public apiError: boolean = false
   constructor(private pokeApiService: PokeApiService) {}
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class PokeListComponent implements OnInit {
         this.setAllPokemons = response.results
         this.getAllPokemons = this.setAllPokemons
       },
+      error: (error) => (this.apiError = true),
     })
   }
 
